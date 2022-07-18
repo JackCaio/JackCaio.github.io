@@ -8,11 +8,11 @@ html, body {
     height: 100vh;
 }
 body {
-    border: 0;
+    border: 0; /* DELETE */
     overflow: hidden;
 }
 
-h1, ul, li {
+h1, ul, li, p { /* DELETE */
     border: 0;
 }
 
@@ -36,17 +36,24 @@ h1, ul, li {
     padding: 10px;
     border-radius: 20px;
 }
+.work-link {
+    margin-left: auto!important;
+}
 
 #content {
     height: 100%;
     margin-top: 20px;
     display: flex;
+
+    overflow: hidden;
 }
 
 #menu-area {
     margin: 20px;
     float: left;
     width: 20%;
+
+    overflow: auto;
 }
 #menu-area h1 {
     margin: 10px;
@@ -63,9 +70,12 @@ h1, ul, li {
 
 li {
     list-style-type: none;
+    margin: 8px;
 }
 
 #main-area {
     margin: 20px 20px 20px 0px;
     width: 100%;
+
+    overflow: auto;
 }
