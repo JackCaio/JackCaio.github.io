@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+}
+
+body {
+    border: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h1, ul, li {
+    border: 0;
+}
+
+#social-area {
+    display: inline;
+    /* position: absolute; */
+    padding: 20px;
+    margin: 20px 0px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#menu-area {
+    margin: 20px;
+    float: left;
+    width: 20%;
+    height: 100%;
+}
+#menu-area h1 {
+    margin: 10px;
+    text-align: center;
+}
+#menu-area hr {
+    margin: 10px;
+}
+
+#trabalho {
+    margin: 10px;
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+#main-area {
+    margin: 20px;
+    width: 100%;
+}
