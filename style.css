@@ -129,13 +129,28 @@ div#main {
     text-align: center;
 }
 div#main a {
-    color: #fff;
     text-decoration: none;
+}
+.startBtn {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 0;
+    font-size: 14px;
 
-    border: 1px #fff solid;
-    border-radius: 20px;
+    color: #fff;
+    background-color: #00000000;
     padding: 10px 30px;
-    font-size: 20px;
+
+    border: solid #fff 2px;
+    box-shadow: rgba(0, 0, 0, 16) 0px 3px 6px, rgba(0, 0, 0, 23) 0px 3px 6px;
+    border-radius: 50px;
+
+    transition: 1000ms;
+    transform: translateY(0);
+}
+.startBtn:hover {
+    transition: 1000ms;
+    padding: 10px 40px;
+    transform: translateX(-0px);
 }
 
 h1#nome {
