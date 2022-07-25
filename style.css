@@ -92,10 +92,12 @@ li {
     overflow: auto;
 }
 
-#about-me {
+article {
     display: flex;
     text-align: center;
     align-items: center;
     flex-flow: column;
     margin: auto;
+    margin-top: 20px;
+    width: 90%;
 }
