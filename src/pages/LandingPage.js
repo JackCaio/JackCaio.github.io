@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import logo from '../logo.svg';
+import Template from './Template';
 
 export default class LandingPage extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={ logo } className="App-logo" alt="logo" />
-          <h1>Hello, World</h1>
-        </header>
-      </div>
+      <Template>
+        <h1>Content</h1>
+      </Template>
     );
   }
 }

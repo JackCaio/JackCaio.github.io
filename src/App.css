@@ -1,3 +1,20 @@
+:root {
+  --color-primary: white;
+  --bg-primary: #0c0d10;
+  --bg-secondary: #181a1f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--color-primary);
+  background-color: var(--bg-primary);
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +52,24 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.page__template {
+  display: grid;
+  grid-template-areas: 'header header header' 'sidenav content content' 'sidenav content content';
+  grid-template-rows: 50px auto auto;
+  grid-template-columns: clamp(150px, 20%, 250px) auto auto;
+  height: 100vh;
+}
+
+.page__header {
+  grid-area: header;
+  align-self: center;
+  background-color: var(--bg-secondary);
+  height: 100%;
+}
+
+.page__sidenav {
+  grid-area: sidenav;
+  background-color: var(--bg-secondary);
 }
