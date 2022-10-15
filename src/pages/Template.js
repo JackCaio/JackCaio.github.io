@@ -6,7 +6,6 @@ import Sidebar from '../components/Sidebar';
 export default class Template extends Component {
   render() {
     const { children } = this.props;
-    console.log(children);
     return (
       <div className="page__template">
         <Header />
