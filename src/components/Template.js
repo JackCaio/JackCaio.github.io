@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Header from '../components/Header';
-import Sidebar from '../components/Sidebar';
+import Header from './Header';
+import Sidebar from './Sidebar';
 
 export default class Template extends Component {
   render() {
