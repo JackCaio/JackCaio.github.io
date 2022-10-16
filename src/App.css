@@ -1,7 +1,11 @@
+/* 282c34 - maketintsandshades */
 :root {
-  --color-primary: white;
+  --txt-primary: white;
   --bg-primary: #0c0d10;
   --bg-secondary: #181a1f;
+  --pg-padding: 20px;
+  --header-height: 50px;
+  --anim-speed: 1s;
 }
 
 * {
@@ -11,65 +15,196 @@
 }
 
 body {
-  color: var(--color-primary);
+  color: var(--txt-primary);
   background-color: var(--bg-primary);
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 .page__template {
   display: grid;
-  grid-template-areas: 'header header header' 'sidenav content content' 'sidenav content content';
-  grid-template-rows: 50px auto auto;
+  grid-template-areas: 'sidenav header header' 'sidenav content content' 'sidenav content content';
+  grid-template-rows: var(--header-height) auto auto;
   grid-template-columns: clamp(150px, 20%, 250px) auto auto;
   height: 100vh;
 }
 
+/* HEADER */
 .page__header {
   grid-area: header;
+  display: flex;
   align-self: center;
   background-color: var(--bg-secondary);
   height: 100%;
+  align-items: center;
+  padding: 0 var(--pg-padding);
 }
 
+/* -- HAMBURGUER ICON -- */
+.hamburg__icon {
+  aspect-ratio: 5/3;
+  width: 2em;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.stick {
+  width: inherit;
+  height: 10%;
+  background-color: white;
+  border-radius: 5px;
+  position: absolute;
+}
+
+.top {
+  top: 0;
+}
+
+.hamburg__icon.open > .top {
+  animation: top-rotate var(--anim-speed) forwards;
+}
+
+.hamburg__icon.close > .top {
+  animation: top-rotate-reverse var(--anim-speed) forwards;
+}
+
+@keyframes top-rotate {
+  0% {
+    top: 0;
+  }
+  40% {
+    top: 50%;
+  }
+  100% {
+    top: 50%;
+    transform: rotate(135deg);
+  }
+}
+
+@keyframes top-rotate-reverse {
+  100% {
+    top: 0;
+  }
+  40% {
+    top: 50%;
+  }
+  0% {
+    top: 50%;
+    transform: rotate(135deg);
+  }
+}
+
+.mid {
+  top: 50%;
+  /* transform: translateY(-25%); */
+}
+
+.hamburg__icon.open > .mid {
+  animation: mid-fade-out var(--anim-speed) forwards;
+}
+
+.hamburg__icon.close > .mid {
+  animation: mid-fade-in var(--anim-speed) forwards;
+}
+
+@keyframes mid-fade-out {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+@keyframes mid-fade-in {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.bot {
+  top: 50%;
+}
+
+.hamburg__icon.open > .bot {
+  animation: bot-rotate var(--anim-speed) forwards;
+}
+
+.hamburg__icon.close > .bot {
+  animation: bot-rotate-reverse var(--anim-speed) forwards;
+}
+
+@keyframes bot-rotate {
+  0% {
+    top: 100%;
+  }
+  40% {
+    top: 50%;
+  }
+  100% {
+    top: 50%;
+    transform: rotate(-135deg);
+  }
+}
+
+@keyframes bot-rotate-reverse {
+  100% {
+    top: 100%;
+  }
+  40% {
+    top: 50%;
+  }
+  0% {
+    top: 50%;
+    transform: rotate(-135deg);
+  }
+}
+
+/* SIDEBAR */
 .page__sidenav {
   grid-area: sidenav;
   background-color: var(--bg-secondary);
+  position: relative;
+  display: grid;
+  place-content: center;
+  gap: 30px;
+}
+
+.profile__img {
+  background-color: aliceblue;
+  width: 50%;
+  aspect-ratio: 1;
+  position: absolute;
+  left: 50%;
+  top: calc(var(--header-height) + 20px);
+  transform: translateX(-50%);
+  border-radius: 50%;
+}
+
+.social__links {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: calc(var(--pg-padding) / 2);
+}
+
+.social__links a {
+  font-size: 1.6rem;
+  color: var(--txt-primary);
+  transition: transform .5s
+}
+
+.social__links a:hover {
+  /* font-size: 2rem; */
+  transform: scale(1.2);
+}
+
+.nav {
+  color: var(--txt-primary);
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  text-decoration: none;
 }
