@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Template from './Template';
+import Template from '../components/Template';
 
 export default class LandingPage extends Component {
   render() {
