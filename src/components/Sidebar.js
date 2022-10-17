@@ -7,7 +7,7 @@ export default class Sidebar extends Component {
     return (
       <div className="page__sidenav">
         <div className="profile__img" />
-        <NavLink to="/" activeClassName="nav__active" className="nav">
+        <NavLink exact to="/" activeClassName="nav__active" className="nav">
           <MdNotes />
           Sobre
         </NavLink>
