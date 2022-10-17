@@ -1,6 +1,7 @@
 /* 282c34 - maketintsandshades */
 :root {
   --txt-primary: white;
+  --txt-neon: #45f3fe;
   --bg-primary: #0c0d10;
   --bg-secondary: #181a1f;
   --pg-padding: 20px;
@@ -23,8 +24,15 @@ body {
   display: grid;
   grid-template-areas: 'sidenav header header' 'sidenav content content' 'sidenav content content';
   grid-template-rows: var(--header-height) auto auto;
-  grid-template-columns: clamp(150px, 20%, 250px) auto auto;
   height: 100vh;
+}
+
+.page__template.open__sidebar {
+  grid-template-columns: clamp(150px, 20%, 250px) auto auto;
+}
+
+.page__template.close__sidebar {
+  grid-template-columns: var(--header-height) auto auto;
 }
 
 /* HEADER */
@@ -96,7 +104,6 @@ body {
 
 .mid {
   top: 50%;
-  /* transform: translateY(-25%); */
 }
 
 .hamburg__icon.open > .mid {
@@ -111,13 +118,13 @@ body {
   0% {
     transform: scale(1);
   }
-  100% {
+  50%, 100% {
     transform: scale(0);
   }
 }
 
 @keyframes mid-fade-in {
-  0% {
+  0%, 50% {
     transform: scale(0);
   }
   100% {
@@ -126,7 +133,7 @@ body {
 }
 
 .bot {
-  top: 50%;
+  top: 100%;
 }
 
 .hamburg__icon.open > .bot {
@@ -173,6 +180,15 @@ body {
   gap: 30px;
 }
 
+.page__sidenav.close .nav__txt,
+.page__sidenav.close .profile__img {
+  display: none;
+}
+
+.page__sidenav.open svg {
+  display: none;
+}
+
 .profile__img {
   background-color: aliceblue;
   width: 50%;
@@ -198,7 +214,6 @@ body {
 }
 
 .social__links a:hover {
-  /* font-size: 2rem; */
   transform: scale(1.2);
 }
 
@@ -207,4 +222,8 @@ body {
   font-size: 1.6rem;
   text-transform: uppercase;
   text-decoration: none;
+}
+
+.nav__active {
+  color: var(--txt-neon);
 }

@@ -26,9 +26,9 @@ export default class Template extends Component {
     const { menu } = this.state;
     const menuControl = { menu, toggleMenu: this.toggleMenu };
     return (
-      <div className="page__template">
+      <div className={ `page__template ${menu}__sidebar` }>
         <Header menuControl={ menuControl } />
-        <Sidebar />
+        <Sidebar menuState={ menu } />
         <div style={ { gridArea: 'content' } }>
           {children}
         </div>
