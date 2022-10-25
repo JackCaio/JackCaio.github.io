@@ -22,18 +22,19 @@ body {
 
 .page__template {
   display: grid;
-  grid-template-areas: 'sidenav header header' 'sidenav content content' 'sidenav content content';
-  grid-template-rows: var(--header-height) auto auto;
+  grid-template-areas: 'header header' 'sidenav content';
+  grid-template-rows: var(--header-height) auto;
+  grid-template-columns: clamp(200px, 20vw, 270px) auto;
   height: 100vh;
 }
 
-.page__template.open__sidebar {
-  grid-template-columns: clamp(150px, 20%, 250px) auto auto;
-}
+/* .page__template.open__sidebar {
+  grid-template-columns: clamp(150px, 20%, 250px) auto;
+} */
 
-.page__template.close__sidebar {
-  grid-template-columns: var(--header-height) auto auto;
-}
+/* .page__template.close__sidebar {
+  grid-template-columns: var(--header-height) auto;
+} */
 
 /* HEADER */
 .page__header {
@@ -43,7 +44,7 @@ body {
   background-color: var(--bg-secondary);
   height: 100%;
   align-items: center;
-  padding: 0 var(--pg-padding);
+  padding: 0 var(--pg-padding) 0 12px;
 }
 
 /* -- HAMBURGUER ICON -- */
@@ -178,6 +179,12 @@ body {
   display: grid;
   place-content: center;
   gap: 30px;
+  transition: 500ms ease;
+}
+
+.page__sidenav.close {
+  transform: translateX(calc(var(--header-height) - 100%));
+  animation: sidenav_items_transition 500ms forwards;
 }
 
 .page__sidenav.close .nav__txt,
@@ -187,6 +194,24 @@ body {
 
 .page__sidenav.open svg {
   display: none;
+}
+
+.page__sidenav.close svg {
+  animation: show_nav_icons 500ms forwards;
+}
+
+@keyframes show_nav_icons {
+  0%, 90% {
+    opacity: 0;
+  }
+}
+
+@keyframes sidenav_items_transition {
+  80%, 100% {
+    place-content: flex-start flex-end;
+    padding-right: 12px;
+    padding-top: 15px;
+  }
 }
 
 .profile__img {
@@ -226,4 +251,14 @@ body {
 
 .nav__active {
   color: var(--txt-neon);
+}
+
+/* CONTENT */
+.page__content {
+  transition: 500ms ease;
+  grid-area: content;
+}
+
+.close__sidebar .page__content {
+  transform: translateX(-150px);
 }

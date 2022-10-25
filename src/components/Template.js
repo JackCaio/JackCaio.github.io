@@ -29,7 +29,7 @@ export default class Template extends Component {
       <div className={ `page__template ${menu}__sidebar` }>
         <Header menuControl={ menuControl } />
         <Sidebar menuState={ menu } />
-        <div style={ { gridArea: 'content' } }>
+        <div className="page__content">
           {children}
         </div>
       </div>
