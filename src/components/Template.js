@@ -11,24 +11,13 @@ export default class Template extends Component {
     };
   }
 
-  toggleMenu = () => {
-    const { menu } = this.state;
-    if (menu === 'open') {
-      this.setState({ menu: 'close' });
-    }
-    if (menu === 'close') {
-      this.setState({ menu: 'open' });
-    }
-  };
-
   render() {
     const { children } = this.props;
     const { menu } = this.state;
-    const menuControl = { menu, toggleMenu: this.toggleMenu };
     return (
       <div className={ `page__template ${menu}__sidebar` }>
-        <Header menuControl={ menuControl } />
-        <Sidebar menuState={ menu } />
+        <Header />
+        <Sidebar />
         <div className="page__content">
           {children}
         </div>
@@ -38,7 +27,5 @@ export default class Template extends Component {
 }
 
 Template.propTypes = {
-  children: PropTypes.shape({
-    type: PropTypes.string,
-  }).isRequired,
+  children: PropTypes.shape({}).isRequired,
 };

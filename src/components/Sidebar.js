@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import { MdCode, MdContacts, MdNotes } from 'react-icons/md';
+import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-export default class Sidebar extends Component {
+class Sidebar extends Component {
   render() {
-    const { menuState } = this.props;
+    const { sidebar } = this.props;
+    const menuState = sidebar ? 'open' : 'close';
     return (
       <div className={ `page__sidenav ${menuState}` }>
         <div className="profile__img" />
@@ -27,7 +29,14 @@ export default class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
-  menuState: PropTypes.string.isRequired,
+  // menuState: PropTypes.string.isRequired,
+  sidebar: PropTypes.bool.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  sidebar: state.sidebarControl.sidebar,
+});
+
+export default connect(mapStateToProps)(Sidebar);
 
 // links de navegação - Sobre | Projetos | Contato

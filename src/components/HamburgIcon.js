@@ -1,14 +1,22 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { toggleMenu } from '../redux/actions';
 
-export default class HamburgIcon extends Component {
+class HamburgIcon extends Component {
+  handleMenu = () => {
+    const { dispatch } = this.props;
+    dispatch(toggleMenu());
+  };
+
   render() {
-    const { menuControl: { menu, toggleMenu } } = this.props;
+    const { sidebar } = this.props;
+    const menuState = sidebar ? 'open' : 'close';
     return (
       <button
         type="button"
-        className={ `hamburg__icon ${menu}` }
-        onClick={ toggleMenu }
+        className={ `hamburg__icon ${menuState}` }
+        onClick={ this.handleMenu }
       >
         <div className="stick top" />
         <div className="stick mid" />
@@ -19,8 +27,12 @@ export default class HamburgIcon extends Component {
 }
 
 HamburgIcon.propTypes = {
-  menuControl: PropTypes.shape({
-    menu: PropTypes.string,
-    toggleMenu: PropTypes.func,
-  }).isRequired,
+  sidebar: PropTypes.bool.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = (state) => ({
+  sidebar: state.sidebarControl.sidebar,
+});
+
+export default connect(mapStateToProps)(HamburgIcon);
