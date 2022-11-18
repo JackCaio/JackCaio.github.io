@@ -55,127 +55,38 @@ body {
 }
 
 /* -- HAMBURGUER ICON -- */
-.hamburg__icon {
-  aspect-ratio: 5/3;
-  width: 2em;
-  position: relative;
+.menu-btn {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  width: 3em;
 }
 
-.stick {
-  width: inherit;
-  height: 10%;
-  background-color: white;
-  border-radius: 5px;
-  position: absolute;
+.hamburg__icon {
+  --hamburg-color: white;
 }
 
-.top {
-  top: 0;
+.hamburg__icon .line {
+  transform-origin: center;
+  transition: var(--anim-speed);
 }
 
-.hamburg__icon.open > .top {
-  animation: top-rotate var(--anim-speed) forwards;
+.hamburg__icon.open :is(.top, .bot) {
+  y: 45; /* Propriedade de svg */
 }
 
-.hamburg__icon.close > .top {
-  animation: top-rotate-reverse var(--anim-speed) forwards;
+.hamburg__icon.open .top {
+  rotate: 135deg;
 }
 
-@keyframes top-rotate {
-  0% {
-    top: 0;
-  }
-  40% {
-    top: 50%;
-  }
-  100% {
-    top: 50%;
-    transform: rotate(135deg);
-  }
+.hamburg__icon.open .bot {
+  rotate: -135deg;
 }
 
-@keyframes top-rotate-reverse {
-  100% {
-    top: 0;
-  }
-  40% {
-    top: 50%;
-  }
-  0% {
-    top: 50%;
-    transform: rotate(135deg);
-  }
-}
-
-.mid {
-  top: 50%;
-}
-
-.hamburg__icon.open > .mid {
-  animation: mid-fade-out var(--anim-speed) forwards;
-}
-
-.hamburg__icon.close > .mid {
-  animation: mid-fade-in var(--anim-speed) forwards;
-}
-
-@keyframes mid-fade-out {
-  0% {
-    transform: scale(1);
-  }
-  50%, 100% {
-    transform: scale(0);
-  }
-}
-
-@keyframes mid-fade-in {
-  0%, 50% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.bot {
-  top: 100%;
-}
-
-.hamburg__icon.open > .bot {
-  animation: bot-rotate var(--anim-speed) forwards;
-}
-
-.hamburg__icon.close > .bot {
-  animation: bot-rotate-reverse var(--anim-speed) forwards;
-}
-
-@keyframes bot-rotate {
-  0% {
-    top: 100%;
-  }
-  40% {
-    top: 50%;
-  }
-  100% {
-    top: 50%;
-    transform: rotate(-135deg);
-  }
-}
-
-@keyframes bot-rotate-reverse {
-  100% {
-    top: 100%;
-  }
-  40% {
-    top: 50%;
-  }
-  0% {
-    top: 50%;
-    transform: rotate(-135deg);
-  }
+.hamburg__icon.open .mid {
+  opacity: 0;
+  scale: 0;
+  transition: 500ms;
 }
 
 /* SIDEBAR */

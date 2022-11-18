@@ -15,12 +15,39 @@ class HamburgIcon extends Component {
     return (
       <button
         type="button"
-        className={ `hamburg__icon ${menuState}` }
+        className="menu-btn"
         onClick={ this.handleMenu }
       >
-        <div className="stick top" />
-        <div className="stick mid" />
-        <div className="stick bot" />
+        <svg
+          fill="var(--hamburg-color)"
+          className={ `hamburg__icon ${menuState}` }
+          viewBox="0 0 100 100"
+        >
+          <rect
+            className="line top"
+            width="80"
+            height="10"
+            x="10"
+            rx="5"
+            y="25"
+          />
+          <rect
+            className="line mid"
+            width="80"
+            height="10"
+            x="10"
+            rx="5"
+            y="45"
+          />
+          <rect
+            className="line bot"
+            width="80"
+            height="10"
+            x="10"
+            rx="5"
+            y="65"
+          />
+        </svg>
       </button>
     );
   }
