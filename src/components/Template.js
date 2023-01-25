@@ -27,5 +27,5 @@ export default class Template extends Component {
 }
 
 Template.propTypes = {
-  children: PropTypes.shape({}).isRequired,
+  children: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
 };
