@@ -60,6 +60,10 @@ body {
   background-color: transparent;
   border: none;
   width: 3em;
+  height: 3em;
+  position: absolute;
+  left: calc((50px - 3em)/2);
+  top: calc((50px - 3em)/2);
 }
 
 .hamburg__icon {
