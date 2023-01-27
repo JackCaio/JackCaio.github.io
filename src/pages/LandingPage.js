@@ -2,35 +2,32 @@
 /* eslint-disable max-len */
 import React, { Component } from 'react';
 import { SiBootstrap, SiCss3, SiJavascript, SiJest,
-  SiReact, SiRedux, SiTestinglibrary, SiDocker } from 'react-icons/si';
+  SiReact, SiRedux, SiTestinglibrary, SiDocker, SiMysql } from 'react-icons/si';
 import Template from '../components/Template';
 
 export default class LandingPage extends Component {
   render() {
     return (
       <Template>
-        <h1>Content</h1>
         <section>
           <h2>Stack</h2>
-          <ul>
-            <li style={ { color: 'yellow' } }><SiJavascript /></li>
-            <li><SiReact /></li>
-            <li><SiJest /></li>
-            <li><SiTestinglibrary /></li>
-            <li><SiRedux /></li>
-            <li><SiBootstrap /></li>
-            <li><SiCss3 /></li>
+          <ul style={ { fontSize: '2rem', display: 'flex', gap: '10px', listStyle: 'none' } }>
+            <li style={ { color: '#f0db4f' } }><SiJavascript /></li>
+            <li style={ { color: '#61dbfb' } }><SiReact /></li>
+            <li style={ { color: '#cf5a37' } }><SiJest /></li>
+            <li style={ { color: '#fa5959' } }><SiTestinglibrary /></li>
+            <li style={ { color: '#764abc' } }><SiRedux /></li>
+            <li style={ { color: '#563d7c' } }><SiBootstrap /></li>
+            <li style={ { color: '#264de4' } }><SiCss3 /></li>
             {/* <li><SiPhp /></li>
             <li><SiCodeigniter /></li>
             <li><SiLaravel /></li> */}
-            <li><SiDocker /></li>
+            <li style={ { color: '#0db7ed' } }><SiDocker /></li>
+            <li style={ { color: '#00758f' } }><SiMysql /></li>
           </ul>
         </section>
         <section>
           <h2>Sobre mim</h2>
-          {/* <p>Nascido em Agosto de 1998, e apaixonado por tecnologia desde que me entendo por gente.</p>
-          <p>Descobri uma paixão pela programação durante a faculdade de Engenharia de Computação, e escolhi me aprofundar nas tecnologias necessárias para desenvolvimento WEB, entrando na Trybe.</p>
-          <p>Gosto muito de aprender na prática, e de ser desafiado a fazer coisas diferentes, sempre busco oportunidades que me forcem a me desafiar e a melhorar como profissional e como pessoa.</p> */}
           <p>
             Sou uma pessoa motivada e determinada, atualmente estudando para me tornar um desenavolvedor FullStack JavaScript. Sou apaixonado por simplificar operações de negócios e gosto trabalhar em ambientes que me desafiem. Estou determinado a fazer um impacto positivo no mundo da  tecnologia.
           </p>
