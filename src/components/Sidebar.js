@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { MdCode, MdContacts, MdNotes } from 'react-icons/md';
+import { MdCode, MdNotes } from 'react-icons/md';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ class Sidebar extends Component {
     const menuState = sidebar ? 'open' : 'close';
     return (
       <div className={ `page__sidenav ${menuState}` }>
-        <div className="profile__img" />
+        {/* <div className="profile__img" /> */}
         <NavLink exact to="/" activeClassName="nav__active" className="nav">
           <MdNotes />
           <span className="nav__txt">Sobre</span>
@@ -19,17 +19,16 @@ class Sidebar extends Component {
           <MdCode />
           <span className="nav__txt">Projetos</span>
         </NavLink>
-        <NavLink to="/contact" activeClassName="nav__active" className="nav">
+        {/* <NavLink to="/contact" activeClassName="nav__active" className="nav">
           <MdContacts />
           <span className="nav__txt">Contato</span>
-        </NavLink>
+        </NavLink> */}
       </div>
     );
   }
 }
 
 Sidebar.propTypes = {
-  // menuState: PropTypes.string.isRequired,
   sidebar: PropTypes.bool.isRequired,
 };
 

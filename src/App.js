@@ -13,8 +13,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={ LandingPage } />
           <Route path="/projects" component={ Projects } />
-          <Route path="/contact" component={ Projects } />
-          {/* <Route path="/legacy" component={ Legacy } /> */}
         </Switch>
       </BrowserRouter>
     </Provider>
