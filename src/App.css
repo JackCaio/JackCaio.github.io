@@ -179,8 +179,7 @@ body {
 
 /* CONTENT */
 .page__content {
-  /* transition: 500ms ease; */
-  grid-area: content;
+  grid-area: content;;
 }
 
 /* .close__sidebar .page__content {
